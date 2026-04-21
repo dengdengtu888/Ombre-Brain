@@ -61,11 +61,14 @@ decay:
 # --- Embedding / 向量化配置 ---
 # Uses embedding API for semantic similarity search
 # 通过 embedding API 实现语义相似度搜索
-# Reuses the same API key (OMBRE_API_KEY) and base_url from dehydration config
-# 复用脱水配置的 API key 和 base_url
+# You can configure embedding independently from dehydration.
+# If api_key is omitted, reuses the same API key (OMBRE_API_KEY) and base_url from dehydration config
+# 你可以把 embedding 独立配置；若 api_key 留空，复用脱水配置的 API key 和 base_url
 embedding:
   enabled: true                   # Enable embedding / 启用向量化
   model: "gemini-embedding-001"   # Embedding model / 向量化模型
+  # base_url: "https://generativelanguage.googleapis.com/v1beta/openai"
+  # api_key: ""                  
 
 # --- Scoring weights / 检索权重参数 ---
 # total = topic(×4) + emotion(×2) + time(×1.5) + importance(×1)
